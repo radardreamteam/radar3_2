@@ -99,7 +99,7 @@ noiseFigure_dB  = 0.4; %for now assume 8 dB receiver noise figure
 noisePower_dBm  = 10*log10(k*TsysTemp*chanBW)+noiseFigure_dB+30; %+30 to go to dBm.
 
 %% Configure input signal parameters
-samplingFreq    = 20e6; % sampling frequency (Hz)
+samplingFreq    = 6e6; % sampling frequency (Hz)
 fcSignal        = txSat(1).freq; %2e6; % signal frequency (Hz)
 numSamps        = 2^10; % number of samples
 t = (0:numSamps-1)/samplingFreq; % time (s)
@@ -111,9 +111,9 @@ Ddiff           = tx2tgtRange + rx2tgtRange - baselineRange;
 timeDelay       = (tx2tgtRange + rx2tgtRange - baselineRange)/propSpeed;
 %samp_offset    = 40000; %round( timeDelay * samplingFreq ); % TDOA [samples] (integer) %
 samp_offset     = round( timeDelay * samplingFreq );
-sampsPerCycle   = 5;% was 10
+sampsPerCycle   = 10;
 % modulation rate must be less than 10% RF freq to be narrowband
-cyclesPerSymbol = 50; % was 16
+cyclesPerSymbol = 16; % was 16
 %% Calculate doppler shift
 a =tgt(1).vel_ecef;
 tgt2tx = tgt(1).pos_ecef-txSat(1).pos_ecef  ;
