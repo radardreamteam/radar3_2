@@ -99,7 +99,7 @@ noiseFigure_dB  = 0.4; %for now assume 8 dB receiver noise figure
 noisePower_dBm  = 10*log10(k*TsysTemp*chanBW)+noiseFigure_dB+30; %+30 to go to dBm.
 
 %% Configure input signal parameters
-samplingFreq    = 6e6; % sampling frequency (Hz)
+samplingFreq    = 12e6; % sampling frequency (Hz)
 fcSignal        = txSat(1).freq; %2e6; % signal frequency (Hz)
 numSamps        = 2^10; % number of samples
 t = (0:numSamps-1)/samplingFreq; % time (s)
